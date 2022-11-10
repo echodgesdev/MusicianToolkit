@@ -18,22 +18,22 @@
 export default {
   name: "PitchPipe",
   props: {
-    title: String,
+    title: String
   },
   setup() {
     const defaultInstruments = [
       {
         name: "Guitar (Standard)",
-        notes: ["E2", "A2", "D3", "G3", "B3", "E3"],
+        notes: ["E2", "A2", "D3", "G3", "B3", "E3"]
       },
       {
         name: "Ukulele (Standard)",
-        notes: ["G4", "C4", "E4", "A4"],
+        notes: ["G4", "C4", "E4", "A4"]
       },
       {
         name: "Major Triad",
-        notes: ["C4", "E4", "G5"],
-      },
+        notes: ["C4", "E4", "G5"]
+      }
     ];
 
     let selectedInstrument = null;
@@ -42,11 +42,11 @@ export default {
   },
   mounted() {},
   methods: {
-    start: function (event) {},
-    onChange: function (event) {
+    start: function() {},
+    onChange: function(event) {
       console.log(event.target.value);
-    },
-  },
+    }
+  }
 };
 </script>
 

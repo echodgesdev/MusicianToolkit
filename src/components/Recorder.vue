@@ -19,7 +19,7 @@
 export default {
   name: "Recorder",
   props: {
-    title: String,
+    title: String
   },
   setup() {
     let isRecording = false;
@@ -40,9 +40,9 @@ export default {
     // We'll get the user's audio input here.
     navigator.mediaDevices
       .getUserMedia({
-        audio: true, // We are only interested in the audio
+        audio: true // We are only interested in the audio
       })
-      .then((stream) => {
+      .then(stream => {
         // Create a new MediaRecorder instance, and provide the audio-stream.
         this.recorder = new MediaRecorder(stream);
 
@@ -52,30 +52,30 @@ export default {
       });
   },
   methods: {
-    start: function (event) {
+    start: function() {
       if (this.isRecording === false) {
         this.isRecording = !this.isRecording;
         this.recorder.start();
       }
     },
-    stop: function (event) {
+    stop: function() {
       if (this.isRecording === true) {
         this.isRecording = !this.isRecording;
         this.recorder.stop();
       }
     },
-    saveChunkToRecording: function (event) {
+    saveChunkToRecording: function(event) {
       this.chunks.push(event.data);
     },
-    saveRecording: function (event) {
+    saveRecording: function() {
       const blob = new Blob(this.chunks, {
-        type: "audio/mp4; codecs=opus",
+        type: "audio/mp4; codecs=opus"
       });
       const url = URL.createObjectURL(blob);
 
       this.audioElement.setAttribute("src", url);
-    },
-  },
+    }
+  }
 };
 </script>
 
